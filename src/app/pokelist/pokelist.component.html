@@ -1,1 +1,5 @@
-<h1>{{data[1].name}}</h1>
+@for (pokemon of PokemonData; track pokemon.pokeIndex) {
+<h1>{{pokemon.pokeIndex}}</h1>    
+<h1>{{pokemon.name}}</h1>
+<img src="{{pokemon.imageFrontDefault}}">
+}
