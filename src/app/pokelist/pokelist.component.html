@@ -1,5 +1,11 @@
-@for (pokemon of PokemonData; track pokemon.pokeIndex) {
-<h1>{{pokemon.pokeIndex}}</h1>    
-<h1>{{pokemon.name}}</h1>
-<img src="{{pokemon.imageFrontDefault}}">
-}
+<section class="pokemon_list">
+    <div *ngFor="let pokemon of PokemonData; track pokeIndex" class="pokemon_card">
+        <img [src]="pokemon.imageFrontDefault" alt="pokemon image">
+        <div class="pokemon_card_info">
+            <img id="pokeball_icon" [src]="pokeballIcon" alt="pokeball icon">
+            <div class="pokemon_info">
+                <h2>{{pokemon.pokedexId}}<br/>{{pokemon.frenchName}}</h2>
+            </div>
+        </div>
+    </div>
+</section>

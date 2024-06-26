@@ -2,6 +2,8 @@ export interface Pokemon {
 
     pokeIndex: number
 
+    pokedexId: string
+
     name: string
 
     imageFrontDefault: string
@@ -13,5 +15,7 @@ export interface Pokemon {
     height: number
 
     weight: number */
-    
+
+    frenchName: string
+
 }
