@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Pokemon, PokemonSpeciesData } from '../../interfaces/pokemon';
+import { Pokemon } from '../../interfaces/pokemon';
 
 import { NgFor, CommonModule} from '@angular/common';
 
