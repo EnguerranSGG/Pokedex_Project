@@ -15,7 +15,7 @@ import { NgFor, CommonModule} from '@angular/common';
 
 export class PokelistComponent implements OnInit {
 
-  public pokeballIcon: string = 'https://i.pinimg.com/736x/f0/51/45/f051457576f8e62a9d0a9906b09f3f34.jpg';
+  public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/pixel_pokeball.png?raw=true';
 
   public PokemonData: Array<Pokemon> = [];
 
@@ -52,7 +52,7 @@ async function GetPokemonData(arg: number) : Promise<Pokemon> {
     (await fetch(pokemonSpeciesUrl)).json()
   ])
 
-  function renderPokedexIndex(pokeIndex: number) {
+  function renderPokedexIndex(pokeIndex: number) : string {
     if (pokeIndex < 10) {
       return `#00${pokeIndex}`;
     } else if (pokeIndex < 100) {
@@ -62,12 +62,69 @@ async function GetPokemonData(arg: number) : Promise<Pokemon> {
     }
   }
 
+  function renderUsableHeight(height: number) : number {
+    return height * 10 / 100;
+  }
+
+  function renderUsableWeight(height: number) : number {
+    return height * 10 / 100;
+  }
+
+  function getTypeIcon(type: string) : string {
+    switch (type) {
+      case 'normal':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_normal.png?raw=true';
+      case 'fighting':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_combat.png?raw=true';
+      case 'flying':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_vol.png?raw=true';
+      case 'poison':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_poison.png?raw=true';
+      case 'ground':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_sol.png?raw=true';
+      case 'rock':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_roche.png?raw=true';
+      case 'bug':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_insecte.png?raw=true';
+      case 'ghost':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_spectre.png?raw=true';
+      case 'steel':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_acier.png?raw=true';
+      case 'fire':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_feu.png?raw=true';
+      case 'water':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_eau.png?raw=true';
+      case 'grass':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_plante.png?raw=true';
+      case 'electric':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_electrique.png?raw=true';
+      case 'psychic':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_psy.png?raw=true';
+      case 'ice':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_glace.png?raw=true';
+      case 'dragon':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_dragon.png?raw=true';
+      case 'dark':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_tenebres.png?raw=true';
+      case 'fairy':
+        return 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/type_fee.png?raw=true';
+      default:
+        return '';
+    }
+  }
+
   return {
     pokeIndex: pokemonData.id,
     pokedexId: renderPokedexIndex(pokemonData.id),
-    name: pokemonData.name,
+    frenchName: pokemonSpeciesData.names[4].name,
+    type1: pokemonData.types[0].type.name,
+    type2: pokemonData.types[1] ? pokemonData.types[1].type.name : null,
+    type1Img: getTypeIcon(pokemonData.types[0].type.name),
+    type2Img: pokemonData.types[1] ? getTypeIcon(pokemonData.types[1].type.name) : null,
     imageFrontDefault: pokemonData.sprites.front_default,
-    frenchName: pokemonSpeciesData.names[4].name
+    imageFrontShiny: pokemonData.sprites.front_shiny,
+    height: renderUsableHeight(pokemonData.height),
+    weight: renderUsableWeight(pokemonData.weight),
   } ;
 
 }

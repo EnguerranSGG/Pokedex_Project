@@ -4,18 +4,22 @@ export interface Pokemon {
 
     pokedexId: string
 
-    name: string
+    frenchName: string
 
     imageFrontDefault: string
 
-    /** imageFrontShiny: string
+    imageFrontShiny: string
 
-    type: Array<string>
+    type1: string
+
+    type2: string | null
+
+    type1Img: string
+
+    type2Img: string | null
 
     height: number
 
-    weight: number */
-
-    frenchName: string
+    weight: number 
 
 }

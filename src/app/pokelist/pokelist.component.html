@@ -7,5 +7,11 @@
                 <h2>{{pokemon.pokedexId}}<br/>{{pokemon.frenchName}}</h2>
             </div>
         </div>
+        <div class="pokemon_modal">
+            <img [src]="pokemon.imageFrontDefault" alt="pokemon image">
+            <p>Taille: {{pokemon.height}}m<br/>Poids: {{pokemon.weight}}kg</p>
+            <img [src]="pokemon.type1Img" alt="pokemon type {{pokemon.type1}}">
+            <img [src]="pokemon.type2Img" alt="pokemon type {{pokemon.type2}}" onerror="this.style.display='none'">
+        </div>
     </div>
 </section>
