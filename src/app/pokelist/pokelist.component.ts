@@ -113,16 +113,44 @@ async function GetPokemonData(arg: number) : Promise<Pokemon> {
     }
   }
 
+  function renderProperGeneration(generation: string) : string {
+    switch (generation) {
+      case 'generation-i':
+        return 'première';
+      case 'generation-ii':
+        return 'deuxième';
+      case 'generation-iii':
+        return 'troisième';
+      case 'generation-iv':
+        return 'quatrième';
+      case 'generation-v':
+        return 'cinquième';
+      case 'generation-vi':
+        return 'sixième';
+      case 'generation-vii':
+        return 'septième';
+      case 'generation-viii':
+        return 'huitième';
+      default:
+        return '';
+    }
+  }
+
   return {
     pokeIndex: pokemonData.id,
     pokedexId: renderPokedexIndex(pokemonData.id),
     frenchName: pokemonSpeciesData.names[4].name,
+    description: pokemonSpeciesData.flavor_text_entries[0].flavor_text,
+    isLegendary: pokemonSpeciesData.is_legendary,
+    isMythical: pokemonSpeciesData.is_mythical,
+    generation: renderProperGeneration(pokemonSpeciesData.generation.name),
     type1: pokemonData.types[0].type.name,
     type2: pokemonData.types[1] ? pokemonData.types[1].type.name : null,
     type1Img: getTypeIcon(pokemonData.types[0].type.name),
     type2Img: pokemonData.types[1] ? getTypeIcon(pokemonData.types[1].type.name) : null,
     imageFrontDefault: pokemonData.sprites.front_default,
     imageFrontShiny: pokemonData.sprites.front_shiny,
+    crie: pokemonData.cries.latest,
     height: renderUsableHeight(pokemonData.height),
     weight: renderUsableWeight(pokemonData.weight),
   } ;

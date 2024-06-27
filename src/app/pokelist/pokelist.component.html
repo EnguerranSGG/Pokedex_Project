@@ -10,8 +10,13 @@
         <div class="pokemon_modal">
             <img [src]="pokemon.imageFrontDefault" alt="pokemon image">
             <p>Taille: {{pokemon.height}}m<br/>Poids: {{pokemon.weight}}kg</p>
+            <p>{{pokemon.frenchName}} est un pokemon {{pokemon.isMythical ? 'mythique'  : ''}}{{pokemon.isLegendary ? "légendaire" : ''}} de la {{pokemon.generation}} génération.<br><br> 
+                "{{pokemon.description}}"</p>
             <img [src]="pokemon.type1Img" alt="pokemon type {{pokemon.type1}}">
             <img [src]="pokemon.type2Img" alt="pokemon type {{pokemon.type2}}" onerror="this.style.display='none'">
+            <audio controls>
+                <source [src]="pokemon.crie" />
+            </audio>
         </div>
     </div>
 </section>

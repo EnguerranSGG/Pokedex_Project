@@ -6,6 +6,14 @@ export interface Pokemon {
 
     frenchName: string
 
+    description: string
+
+    isLegendary: boolean
+
+    isMythical: boolean
+
+    generation: string
+
     imageFrontDefault: string
 
     imageFrontShiny: string
@@ -17,6 +25,8 @@ export interface Pokemon {
     type1Img: string
 
     type2Img: string | null
+
+    crie : string
 
     height: number
 
