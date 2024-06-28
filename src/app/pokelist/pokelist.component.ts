@@ -21,7 +21,7 @@ export class PokelistComponent implements OnInit {
 
   public PokemonData: Array<Pokemon> = [];
 
-  public userHasClicked: boolean = false;
+  public selectedPokemonIndex: number | null = null;
 
   ngOnInit() {
     this.loadPokemonData();
@@ -38,14 +38,16 @@ export class PokelistComponent implements OnInit {
     console.log(this.PokemonData);
   }
 
-  onFocus() : void {
+  onFocus(index: number | null): void {
+    this.selectedPokemonIndex = index;
+  }
 
-    if (this.userHasClicked === false) {
-      this.userHasClicked = true;
-    } else {
-      this.userHasClicked = false;
-    }
+  trackByPokeIndex(index: number, pokemon: Pokemon): number {
+    return pokemon.pokeIndex;
+  }
 
+  closeModal(): void {
+    this.selectedPokemonIndex = null;
   }
 
 }
