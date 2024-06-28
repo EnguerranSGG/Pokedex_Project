@@ -1,1 +1,5 @@
-<app-pokelist class="pokemon_list_container"></app-pokelist>
+<section class="pokemon_list">
+@for (pokemon of PokemonData; track pokemon.pokeIndex;) {
+  <app-pokelist [pokemon]="pokemon" (click)="onFocus(pokemon.pokeIndex)"></app-pokelist>
+}
+</section>
