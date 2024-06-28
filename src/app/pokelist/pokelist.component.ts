@@ -4,10 +4,14 @@ import { Pokemon } from '../models/pokemon';
 
 import { NgFor, CommonModule, NgClass } from '@angular/common';
 
+import { PokemonService } from '../services/data';
+
+import { PokemonComponent } from '../pokemon/pokemon.component';
+
 @Component({
   selector: 'app-pokelist',
   standalone: true,
-  imports: [NgFor, CommonModule, NgClass],
+  imports: [NgFor, CommonModule, NgClass, PokemonComponent],
   templateUrl: './pokelist.component.html',
   styleUrl: './pokelist.component.scss'
 })
@@ -15,15 +19,25 @@ import { NgFor, CommonModule, NgClass } from '@angular/common';
 
 export class PokelistComponent implements OnInit {
 
-  @Input() pokemon!: Pokemon;
-
-  constructor() { }
-
   public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/pixel_pokeball.png?raw=true';
 
-  public PokemonData: Array<Pokemon> = [];
+  public selectedPokemonIndex: number | null = null;
 
-  ngOnInit() {
+  pokemons!: Array<Pokemon>;
+
+  constructor(private PokemonService: PokemonService) {}
+
+  async ngOnInit() {
+    await this.PokemonService.loadPokemonData();
+    this.pokemons = this.PokemonService.getPokemons();
+  }
+
+  onFocus(index: number | null): void {
+    this.selectedPokemonIndex = index;
+  }
+
+  trackByPokeIndex(index: number, pokemon: Pokemon): number {
+    return pokemon.pokeIndex;
   }
 
 

@@ -1,3 +1,7 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { PokelistComponent } from './pokelist/pokelist.component';
+
+export const routes: Routes = [
+    {path: "", component: PokelistComponent}
+];

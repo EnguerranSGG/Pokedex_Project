@@ -1,20 +1,5 @@
-        <div class="pokemon_card">
-            <img [src]="pokemon.imageFrontDefault" alt="pokemon image">
-            <div class="pokemon_card_info">
-                <img id="pokeball_icon" [src]="pokeballIcon" alt="pokeball icon">
-                <div class="pokemon_info">
-                    <h2>{{pokemon.pokedexId}}<br/>{{pokemon.frenchName}}</h2>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img [src]="pokemon.imageFrontDefault" alt="pokemon image">
-            <p>Taille: {{pokemon.height}}m<br/>Poids: {{pokemon.weight}}kg</p>
-            <p>{{pokemon.frenchName}} est un pokemon {{pokemon.isMythical ? 'mythique' : ''}}{{pokemon.isLegendary ? "légendaire" : ''}} de la {{pokemon.generation}} génération.<br><br> 
-                "{{pokemon.description}}"</p>
-            <img [src]="pokemon.type1Img" alt="pokemon type {{pokemon.type1}}">
-            <img [src]="pokemon.type2Img" alt="pokemon type {{pokemon.type2}}" onerror="this.style.display='none'">
-            <audio controls>
-                <source [src]="pokemon.crie" />
-            </audio>
-        </div>
+<section class="pokemon_list">
+@for (pokemon of pokemons; track pokemon.pokeIndex;) {
+    <app-pokemon [pokemon]="pokemon" (click)="onFocus(pokemon.pokeIndex)"></app-pokemon>
+  }
+</section>
