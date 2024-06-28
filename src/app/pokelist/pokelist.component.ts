@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 import { Pokemon } from '../../interfaces/pokemon';
 
-import { NgFor, CommonModule} from '@angular/common';
+import { NgFor, CommonModule, NgClass} from '@angular/common';
 
 import { renderProperGeneration, renderPokedexIndex, renderUsableHeight, renderUsableWeight, getTypeIcon } from '../services/services';
 
 @Component({
   selector: 'app-pokelist',
   standalone: true,
-  imports: [NgFor, CommonModule],
+  imports: [NgFor, CommonModule, NgClass],
   templateUrl: './pokelist.component.html',
   styleUrl: './pokelist.component.scss'
 })
@@ -20,6 +20,8 @@ export class PokelistComponent implements OnInit {
   public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/pixel_pokeball.png?raw=true';
 
   public PokemonData: Array<Pokemon> = [];
+
+  public userHasClicked: boolean = false;
 
   ngOnInit() {
     this.loadPokemonData();
@@ -34,6 +36,16 @@ export class PokelistComponent implements OnInit {
     this.PokemonData = await Promise.all(promises);
 
     console.log(this.PokemonData);
+  }
+
+  onFocus() : void {
+
+    if (this.userHasClicked === false) {
+      this.userHasClicked = true;
+    } else {
+      this.userHasClicked = false;
+    }
+
   }
 
 }
@@ -69,36 +81,3 @@ async function GetPokemonData(arg: number) : Promise<Pokemon> {
   } ;
 
 }
-
-/*async function GetPokemonSpeciesData(arg: number) {
-
-  const url : string = `https://pokeapi.co/api/v2/pokemon-species/${arg}`;
-  
-  const response = await fetch(url);
-
-  const data = await response.json();
-
-  return data;
-
-}*/
-
-
-/*export class PokelistComponent {
-
-  private pokeListUrl = 'https://pokeapi.co/api/v2/pokemon?limit=100000@offset=0';
-
-  public http = inject(HttpClient);
-
-  public data: Array<any> = [];
-
-  ngOnInit() {
-    this.http.get(this.pokeListUrl)
-      .subscribe({
-        next: (data: any) => {
-          console.log(data.results);
-          this.data = data.results;
-        }
-      })
-  };
-
-}*/
