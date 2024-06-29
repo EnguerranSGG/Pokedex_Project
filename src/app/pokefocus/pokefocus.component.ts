@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../models/pokemon';
 import { PokemonService } from '../services/data';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-pokefocus',
   standalone: true,
-  imports: [],
+  imports: [ NgIf, CommonModule],
   templateUrl: './pokefocus.component.html',
   styleUrls: ['./pokefocus.component.scss']
 })

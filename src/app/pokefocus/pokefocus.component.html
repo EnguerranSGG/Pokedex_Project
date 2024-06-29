@@ -3,9 +3,10 @@
         <div class="pokefocus_card_img">
             <img [src]="pokemon.imageFrontDefault" alt="pokemon image">
         </div>
-        <audio controls>
-            <source [src]="pokemon.crie" />
-        </audio>
+        <audio controls *ngIf="pokemon.crie">
+            <source [src]="pokemon.crie" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
     </div>
 
     <div class="pokefocus_card_right">
