@@ -22,20 +22,8 @@ export class PokemonFocusComponent implements OnInit {
     const pokemonIndex = parseInt(this.route.snapshot.params['pokeIndex'], 10); // Ensure the index is an integer
 
     try {
-      // Ensure that the data is loaded before trying to access it
-      if (this.pokemonService.getPokemons().length === 0) {
-        await this.pokemonService.loadPokemonData();
-      }
-
-      // Fetch the Pokémon by index
-      const pokemon = await this.pokemonService.getPokemonByIndex(pokemonIndex);
-
-      // Check if the Pokémon was found and assign it to the component property
-      if (pokemon) {
-        this.pokemon = pokemon;
-      } else {
-        console.error(`Pokemon with index ${pokemonIndex} not found`);
-      }
+      // Fetch the Pokémon by index, it will be either from cache or API
+      this.pokemon = await this.pokemonService.getPokemonByIndex(pokemonIndex);
     } catch (error) {
       console.error('Failed to load Pokémon:', error);
       // Handle the error appropriately in your application
