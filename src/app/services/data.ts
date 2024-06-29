@@ -55,4 +55,12 @@ export class PokemonService {
         return this.pokemons;
     }
 
+    async getPokemonByIndex(pokemonIndex: number): Promise<Pokemon> {
+        const pokemonFound : Pokemon | undefined = this.pokemons.find(pokemon => pokemon.pokeIndex === pokemonIndex);
+        if (!pokemonFound) {
+            throw new Error('Pokemon not found');
+        } else {
+            return pokemonFound;
+        }
+    }
 }

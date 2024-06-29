@@ -1,0 +1,65 @@
+.pokefocus_card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1vw;
+    padding: 1vw;
+    border: 1vw solid rgb(33, 30, 30);
+    background-color: rgb(8, 159, 159, 0.7);
+    height: 90vh;
+    margin: 1vw;
+    overflow-y: scroll;
+
+    font-family: "VT323", monospace;
+    font-weight: 500;
+    font-style: normal;
+
+    @media screen and (orientation: portrait) {
+        border: 2vw solid rgb(33, 30, 30);
+        padding: 1.5vw;
+    }
+}
+
+.pokefocus_card_left {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.pokefocus_card_img img {
+    object-fit: cover;
+    width: 30vw;
+    height: 30vw;
+    border : 0.5vw solid rgb(33, 30, 30);
+    border-radius: 3%;
+    background-image: url("https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/pokemon_background.jpg?raw=true");
+}
+
+.pokefocus_card_morpho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2vw;
+    gap: 5vw;
+}
+
+.pokefocus_card_right {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.pokefocus_card_bottom {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}

@@ -1,0 +1,27 @@
+<div class="pokefocus_card">
+    <div class="pokefocus_card_left">
+        <div class="pokefocus_card_img">
+            <img [src]="pokemon.imageFrontDefault" alt="pokemon image">
+        </div>
+        <audio controls>
+            <source [src]="pokemon.crie" />
+        </audio>
+    </div>
+
+    <div class="pokefocus_card_right">
+        <img id="pokeball_icon" [src]="pokeballIcon" alt="pokeball icon">
+        <div class="pokemon_info">
+            <h2>{{pokemon.pokedexId}}<br />{{pokemon.frenchName}}</h2>
+        </div>
+        <img [src]="pokemon.type1Img" alt="pokemon type {{pokemon.type1}}">
+        <img [src]="pokemon.type2Img" alt="pokemon type {{pokemon.type2}}" onerror="this.style.display='none'">
+        <div class="pokefocus_card_morpho">
+            <p>Taille: {{pokemon.height}}m</p>
+            <p>Poids: {{pokemon.weight}}kg</p>
+        </div>
+    </div>
+    <div class="pokefocus_card_bottom">
+        <p>{{pokemon.frenchName}} est un pokemon {{pokemon.isMythical ? 'mythique'  : ''}}{{pokemon.isLegendary ? "légendaire" : ''}} de la {{pokemon.generation}} génération.<br><br> 
+            "{{pokemon.description}}"</p>
+        </div>
+</div>
