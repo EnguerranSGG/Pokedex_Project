@@ -20,14 +20,12 @@ export class PokemonFocusComponent implements OnInit {
   constructor(private pokemonService: PokemonService, private route: ActivatedRoute) {}
 
   async ngOnInit() {
-    const pokemonIndex = parseInt(this.route.snapshot.params['pokeIndex'], 10); // Ensure the index is an integer
+    const pokemonIndex = parseInt(this.route.snapshot.params['pokeIndex'], 10);
 
     try {
-      // Fetch the Pokémon by index, it will be either from cache or API
       this.pokemon = await this.pokemonService.getPokemonByIndex(pokemonIndex);
     } catch (error) {
       console.error('Failed to load Pokémon:', error);
-      // Handle the error appropriately in your application
     }
   }
 }
