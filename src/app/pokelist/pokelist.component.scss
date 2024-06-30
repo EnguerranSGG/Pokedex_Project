@@ -2,38 +2,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1vw;
-}
+    padding: 1vw;
+    border: 1vw solid rgb(33, 30, 30);
+    background-color: rgb(8, 159, 159, 0.7);
+    height: 90vh;
+    margin: 1vw;
+    overflow-y: scroll;
 
-.pokemon_card {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 2px solid black;
-    border-left: 2px solid black;
-
-    &:hover {
-        background-color: rgb(202, 202, 202);
-        cursor: pointer;
+    @media screen and (orientation: portrait) {
+        grid-template-columns: 1fr 1fr;
+        border: 2vw solid rgb(33, 30, 30);
+        padding: 1.5vw;
+        gap: 1.5vw;
     }
-}
-
-.pokemon_card_info {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    align-items: center;
-    justify-items: center;
-}
-
-#pokeball_icon {
-    object-fit: cover;
-    width: 5vw;
-    height: 5vw;
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
-
-.pokemon_info h2 {
-    font-family: "VT323", monospace;
-    font-weight: 500;
-    font-size: 2.5vw;
-    font-style: normal;
 }

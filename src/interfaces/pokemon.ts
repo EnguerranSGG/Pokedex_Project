@@ -1,21 +1,35 @@
-export interface Pokemon {
+export interface IPokemon {
 
     pokeIndex: number
 
     pokedexId: string
 
-    name: string
+    frenchName: string
+
+    description: string
+
+    isLegendary: boolean
+
+    isMythical: boolean
+
+    generation: string
 
     imageFrontDefault: string
 
-    /** imageFrontShiny: string
+    imageFrontShiny: string
 
-    type: Array<string>
+    type1: string
+
+    type2: string | null
+
+    type1Img: string
+
+    type2Img: string | null
+
+    crie : string
 
     height: number
 
-    weight: number */
-
-    frenchName: string
+    weight: number 
 
 }
