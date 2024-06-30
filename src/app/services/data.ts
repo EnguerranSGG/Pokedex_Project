@@ -42,7 +42,11 @@ export class PokemonService {
       pokeIndex: pokemonData.id,
       pokedexId: renderPokedexIndex(pokemonData.id),
       frenchName: pokemonSpeciesData.names[4].name,
-      description: pokemonSpeciesData.flavor_text_entries[0].flavor_text,
+      description: pokemonSpeciesData.flavor_text_entries.filter((entry: { language: { name: string }; flavor_text: string }) => entry.language.name === 'fr')[0].flavor_text,
+
+      /* Ci-dessus, la méthode filter se voit préciser le type de entry sous la forme d'un objet avec des
+      propriétés de type string afin d'éviter que TypeScript considère entry comme de type any.  */
+      
       isLegendary: pokemonSpeciesData.is_legendary,
       isMythical: pokemonSpeciesData.is_mythical,
       generation: renderProperGeneration(pokemonSpeciesData.generation.name),
@@ -68,7 +72,6 @@ export class PokemonService {
   async getPokemonByIndex(pokemonIndex: number): Promise<Pokemon> {
     const pokemon = this.pokemons.get(pokemonIndex);
     if (!pokemon) {
-      // If not found in cache, fetch from API
       return await this.getPokemonData(pokemonIndex);
     }
     return pokemon;
