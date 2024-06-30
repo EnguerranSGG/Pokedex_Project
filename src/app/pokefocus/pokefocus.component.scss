@@ -6,8 +6,7 @@
     padding: 1vw 5vw;
     border: 1vw solid rgb(33, 30, 30);
     background-color: rgb(8, 159, 159, 0.7);
-    height: 90vh;
-    margin: 1vw;
+    height: 75vh;
 
     overflow-y: scroll;
 
@@ -24,6 +23,10 @@
 
         padding: 3vw;
 
+    }
+
+    @media screen and (max-height: 500px) and (orientation: landscape) {
+        height: 70vh;
     }
 }
 
