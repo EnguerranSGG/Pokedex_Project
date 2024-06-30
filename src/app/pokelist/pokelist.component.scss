@@ -4,9 +4,8 @@
     gap: 1vw;
     padding: 1vw;
     border: 1vw solid rgb(33, 30, 30);
-    background-color: rgb(8, 159, 159, 0.7);
-    height: 90vh;
-    margin: 1vw;
+    background-color: rgb(8, 159, 159, 1);
+    height: 75vh;
     overflow-y: scroll;
 
     @media screen and (orientation: portrait) {
@@ -15,4 +14,7 @@
         padding: 1.5vw;
         gap: 1.5vw;
     }
-}
+
+    @media screen and (max-height: 500px) and (orientation: landscape) {
+        height: 70vh;
+    }}
