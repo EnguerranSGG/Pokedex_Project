@@ -30,6 +30,8 @@ export class PokelistComponent implements OnInit {
   async ngOnInit() {
     await this.PokemonService.loadPokemonData();
     this.pokemons = this.PokemonService.getPokemons();
+
+    this.sortPokemons();
   }
 
   onFocus(index: number | null): void {
@@ -40,6 +42,13 @@ export class PokelistComponent implements OnInit {
     return pokemon.pokeIndex;
   }
 
+  private sortPokemons(): void {
+    this.pokemons.sort((a, b) => a.pokeIndex - b.pokeIndex);
+  }
+
+  /* Cette function utilise la méthode sort afin de s'assurer que les pokémons seront toujours affichés dans
+  l'ordre de leur pokeIndex. En faisant a - b, a sera soit négatif, égal ou positif. Si a devient négatif 
+  alors il sera placer avant b ect... */
 
 }
 
