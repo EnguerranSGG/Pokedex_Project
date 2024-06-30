@@ -10,7 +10,7 @@
     padding-left: 5vw;
 }
 
-.pokefilter_button {
+.pokehome_button {
     border-radius: 50%;
     height: 11vh;
     width: 11vh;
@@ -18,7 +18,17 @@
     border: 2px solid black;
     right: 3vw;
 
-    filter: brightness(7);
+    background-image: url("https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/logo_home.png?raw=true");
+    background-size: contain;
+    background-position: center;
+    transition: filter 0.4s ease;
+
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(120%);;
+    }
+
 }
 
 .led_container {
