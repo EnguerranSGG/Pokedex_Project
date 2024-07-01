@@ -9,5 +9,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './pokeheader.component.scss'
 })
 export class PokeheaderComponent {
+playSound() {
+  const audio = new Audio('../../assets/sounds/pokemon_red_blue_yellow sound effects.mp3');
+  audio.play();
+}
 
 }
