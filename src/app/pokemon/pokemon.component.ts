@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 
 import { Pokemon } from '../models/pokemon';
 import { Router } from '@angular/router';
-import { delay, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon',
