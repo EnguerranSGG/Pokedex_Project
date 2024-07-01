@@ -19,7 +19,7 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
 
 export class PokelistComponent implements OnInit {
 
-  public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/pixel_pokeball.png?raw=true';
+  public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/pixel_pokeball.png?raw=true';
 
   public selectedPokemonIndex: number | null = null;
 
