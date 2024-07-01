@@ -23,7 +23,7 @@ export class PokemonComponent {
     const audio = new Audio(`${roar}`);
     audio.play();
 
-    setTimeout(() => this.router.navigateByUrl(`/pokedex/${this.pokemon.pokeIndex}`), 1200);
+    setTimeout(() => this.router.navigateByUrl(`/pokedex/${this.pokemon.pokeIndex}`), 1000);
     }
 
 }
