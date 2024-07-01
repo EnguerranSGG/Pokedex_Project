@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class PokeheaderComponent {
 playSound() {
-  const audio = new Audio('../../assets/sounds/pokemon_red_blue_yellow sound effects.mp3');
+  const audio = new Audio('https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/sounds/Poke_click.mov?raw=true');
   audio.play();
 }
 
