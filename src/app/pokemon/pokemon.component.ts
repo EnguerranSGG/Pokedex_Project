@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 import { Pokemon } from '../models/pokemon';
 import { Router } from '@angular/router';
+import { delay, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon',
@@ -22,7 +23,8 @@ export class PokemonComponent {
   onFocusPokemon(roar : string) {
     const audio = new Audio(`${roar}`);
     audio.play();
-    this.router.navigateByUrl(`/pokedex/${this.pokemon.pokeIndex}`);
+
+    setTimeout(() => this.router.navigateByUrl(`/pokedex/${this.pokemon.pokeIndex}`), 1200);
     }
 
 }
