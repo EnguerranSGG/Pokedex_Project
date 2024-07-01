@@ -19,7 +19,10 @@ export class PokemonComponent {
   constructor(private router: Router) {
     
   }
-  onFocusPokemon() {
+  onFocusPokemon(roar : string) {
+    const audio = new Audio(`${roar}`);
+    audio.play();
     this.router.navigateByUrl(`/pokedex/${this.pokemon.pokeIndex}`);
     }
+
 }
