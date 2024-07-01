@@ -43,4 +43,8 @@
     font-weight: 500;
     font-size: 2.5vw;
     font-style: normal;
+
+    @media screen and (orientation: portrait) {
+        font-size: 3.5vw;
+    }
 }
