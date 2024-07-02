@@ -48,7 +48,18 @@
     width: 3vh;
     background-color: red;
     border: 2px solid black;
-    
+    background-image: url("https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/logo_filter.png?raw=true");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: filter 0.4s ease;
+    filter: brightness(90%);
+
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(150%);;
+    }
 }
 
 .led_yellow {

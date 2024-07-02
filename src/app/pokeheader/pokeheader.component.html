@@ -1,8 +1,8 @@
 <div class="pokeheader">
     <div class="pokehome_button" (click)="playSound()" routerLink="/"></div>
     <div class="led_container">
-        <div class="led_red"></div>
-        <div class="led_yellow"></div>
-        <div class="led_green"></div>
+        <div class="led_red" (click)="playSound()" routerLink="/pokefilter"></div>
+        <div class="led_yellow" (click)="onAlert()"></div>
+        <div class="led_green" (click)="onAlert()"></div>
     </div>
 </div>

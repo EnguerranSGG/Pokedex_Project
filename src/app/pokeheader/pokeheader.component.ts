@@ -14,4 +14,8 @@ playSound() {
   audio.play();
 }
 
+onAlert() {
+  alert('Ce bouton aura une utilité dans un futur proche !');
+}
+
 }
