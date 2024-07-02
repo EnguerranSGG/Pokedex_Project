@@ -57,7 +57,7 @@
     height: 30vw;
     border : 0.5vw solid rgb(248, 197, 10);
     border-radius: 3%;
-    background-image: url("https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/pokemon_background.jpg?raw=true");
+    background-image: url("https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/pokemon_background.jpg?raw=true");
 
     @media screen and (orientation: portrait) {
         object-fit: cover;
@@ -182,3 +182,8 @@
     }
 }
 
+@media screen and (orientation: portrait) {
+    .pokefocus_card_bottom p {
+        text-align: center;
+    }
+}

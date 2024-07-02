@@ -14,7 +14,7 @@ export class PokemonComponent {
 
   @Input() pokemon!: Pokemon;
 
-  public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/pixel_pokeball.png?raw=true';
+  public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/pixel_pokeball.png?raw=true';
 
   constructor(private router: Router) {
     
@@ -22,7 +22,8 @@ export class PokemonComponent {
   onFocusPokemon(roar : string) {
     const audio = new Audio(`${roar}`);
     audio.play();
-    this.router.navigateByUrl(`/pokedex/${this.pokemon.pokeIndex}`);
+
+    setTimeout(() => this.router.navigateByUrl(`/pokedex/${this.pokemon.pokeIndex}`), 1000);
     }
 
 }

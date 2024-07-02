@@ -12,5 +12,7 @@ import { PokeheaderComponent } from './pokeheader/pokeheader.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-
+  ngOnInit() {
+    alert('Attention dresseur, cette application utilise des effets sonores !');
+  }
 }

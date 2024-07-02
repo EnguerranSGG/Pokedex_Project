@@ -8,6 +8,19 @@
         background-color: rgb(202, 202, 202);
         cursor: pointer;
     }
+
+    &:active img {
+        animation-name: shake;
+        animation-duration: 1.2s;
+    }
+}
+
+@keyframes shake {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(15deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(-15deg);}
+    100% {transform: rotate(0deg);}
 }
 
 .pokemon_card_info {
@@ -30,29 +43,8 @@
     font-weight: 500;
     font-size: 2.5vw;
     font-style: normal;
-}
 
-/*.pokemon_modal {
-    font-family: "VT323", monospace;
-    font-weight: 500;
-    font-size: 2.5vw;
-    font-style: normal;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+    @media screen and (orientation: portrait) {
+        font-size: 3.5vw;
+    }
 }
-
-.modal-backdrop {
-    position: fixed;
-    top: 1%;
-    left: 1%;
-    height: 90vh;
-    padding: 1vw;
-    border: 1vw solid rgb(33, 30, 30);
-    background-color: rgb(8, 159, 159, 0.7);
-    z-index: 999;
-}*/
