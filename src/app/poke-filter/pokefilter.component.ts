@@ -32,6 +32,8 @@ export class PokeFilterComponent {
     this.selectedPokemonType1 = pokemonType1;
     this.selectedPokemonType2 = pokemonType2;
     this.filteredPokemons = await this.PokemonService.getPokemonByTypes(this.selectedPokemonType1, this.selectedPokemonType2);
+
+    this.sortPokemons();
   }
 
   onFocus(index: number | null): void {

@@ -86,6 +86,8 @@ export class PokemonService {
             } else if (type1 && type2 && 
                 ((pokemon.type1 === typeTraductor(type1) && pokemon.type2 === typeTraductor(type2) || (pokemon.type1 === typeTraductor(type2) && pokemon.type2 === typeTraductor(type1))))) {
                 filteredPokemon.push(pokemon);
+            } else if (!type1 && !type2) {
+                filteredPokemon.push(pokemon);
             }
         });
     
