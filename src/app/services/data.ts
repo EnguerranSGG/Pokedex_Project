@@ -20,8 +20,6 @@ export class PokemonService {
         pokemonArray.forEach(pokemon => {
             this.pokemons.set(pokemon.pokeIndex, pokemon);
         });
-
-        console.log(this.pokemons);
     }
 
     async getPokemonData(arg: number): Promise<Pokemon> {
