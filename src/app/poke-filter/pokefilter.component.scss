@@ -1,0 +1,79 @@
+.pokemon_filter {
+    padding: 1vw;
+    border: 1vw solid rgb(33, 30, 30);
+    background-color: rgb(8, 159, 159, 1);
+    height: 75vh;
+    overflow-y: scroll;
+
+    @media screen and (orientation: portrait) {
+        border: 2vw solid rgb(33, 30, 30);
+        padding: 1.5vw;
+    }
+}
+
+.pokemon_filter_form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    padding-bottom: 1vw;
+}
+
+.pokemon_filter_form input {
+    height: 1.5vw;
+    width: 15vw;
+    font-family: "VT323", monospace;
+    font-size: 1.5vw;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+}
+
+#pokesearch_button {
+    height: auto;
+    width: auto;
+    background-color: rgb(22, 176, 176);
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    background-size: contain;
+    background-position: center;
+
+    font-family: "VT323", monospace;
+    font-size: 1.5vw;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+
+    transition: filter 0.4s ease;
+    transition: border 0.4s ease;
+    cursor: pointer;
+    &:hover {
+        filter: brightness(120%);;
+    }
+    &:active {
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+    }
+}
+
+#pokesearch_button p {
+    font-family: "VT323", monospace;
+    font-size: 1.5vw;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+}
+
+.pokemon_flitered_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1vw;
+
+    @media screen and (orientation: portrait) {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5vw;
+    }
+}
