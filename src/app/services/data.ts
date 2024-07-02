@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../models/pokemon';
-import { renderProperGeneration, renderPokedexIndex, renderUsableHeight, renderUsableWeight, getTypeIcon } from '../services/services';
+import { renderProperGeneration, renderPokedexIndex, renderUsableHeight, renderUsableWeight, getTypeIcon, typeTraductor } from '../services/services';
 
 @Injectable({
     providedIn: 'root'
@@ -81,60 +81,17 @@ export class PokemonService {
         const filteredPokemon: Array<Pokemon> = [];
     
         this.pokemons.forEach(pokemon => {
-            if (type1 && !type2 && pokemon.type1 === this.typeTraductor(type1)) {
+            if (type1 && !type2 && pokemon.type1 === typeTraductor(type1)) {
                 filteredPokemon.push(pokemon);
-            } else if (type2 && !type1 && pokemon.type2 === this.typeTraductor(type2)) {
+            } else if (type2 && !type1 && pokemon.type2 === typeTraductor(type2)) {
                 filteredPokemon.push(pokemon);
             } else if (type1 && type2 && 
-                ((pokemon.type1 === this.typeTraductor(type1) && pokemon.type2 === this.typeTraductor(type2) || (pokemon.type1 === this.typeTraductor(type2) && pokemon.type2 === this.typeTraductor(type1))))) {
+                ((pokemon.type1 === typeTraductor(type1) && pokemon.type2 === typeTraductor(type2) || (pokemon.type1 === typeTraductor(type2) && pokemon.type2 === typeTraductor(type1))))) {
                 filteredPokemon.push(pokemon);
             }
         });
     
         return filteredPokemon;
-    }
-
-    typeTraductor(type: string): string {
-        switch (type) {
-            case 'normal':
-                return 'normal';
-            case 'combat':
-                return 'fighting';
-            case 'vol':
-                return 'flying';
-            case 'poison':
-                return 'poison';
-            case 'sol':
-                return 'ground';
-            case 'roche':
-                return 'rock';
-            case 'insecte':
-                return 'bug';
-            case 'spectre':
-                return 'ghost';
-            case 'acier':
-                return 'steel';
-            case 'feu':
-                return 'fire';
-            case 'eau':
-                return 'water';
-            case 'plante':
-                return 'grass';
-            case 'electrik':
-                return 'electric';
-            case 'psy':
-                return 'psychic';
-            case 'glace':
-                return 'ice';
-            case 'dragon':
-                return 'dragon';
-            case "tenebres" :
-                return 'dark';
-            case 'fee' :
-                return 'fairy';
-            default:
-                return 'Inconnu';
-        }
     }
     
 }

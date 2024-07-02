@@ -81,3 +81,46 @@ export function renderProperGeneration(generation: string) : string {
         return '';
     }
   }
+
+  export function typeTraductor(type: string): string {
+    switch (type) {
+        case 'normal':
+            return 'normal';
+        case 'combat':
+            return 'fighting';
+        case 'vol':
+            return 'flying';
+        case 'poison':
+            return 'poison';
+        case 'sol':
+            return 'ground';
+        case 'roche':
+            return 'rock';
+        case 'insecte':
+            return 'bug';
+        case 'spectre':
+            return 'ghost';
+        case 'acier':
+            return 'steel';
+        case 'feu':
+            return 'fire';
+        case 'eau':
+            return 'water';
+        case 'plante':
+            return 'grass';
+        case 'electrik':
+            return 'electric';
+        case 'psy':
+            return 'psychic';
+        case 'glace':
+            return 'ice';
+        case 'dragon':
+            return 'dragon';
+        case "tenebres" :
+            return 'dark';
+        case 'fee' :
+            return 'fairy';
+        default:
+            return 'Inconnu';
+    }
+}
