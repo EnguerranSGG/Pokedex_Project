@@ -15,7 +15,7 @@ export class PokemonFocusComponent implements OnInit {
 
   pokemon!: Pokemon;
 
-  public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/images/pixel_pokeball.png?raw=true';
+  public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/pixel_pokeball.png?raw=true';
   
   constructor(private pokemonService: PokemonService, private route: ActivatedRoute) {}
 
