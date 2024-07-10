@@ -13,6 +13,7 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
   templateUrl: './pokefilter.component.html',
   styleUrls: ['../poke-filter/pokefilter.component.scss']
 })
+
 export class PokeFilterComponent {
 
   filteredPokemons: Array<Pokemon> = [];
