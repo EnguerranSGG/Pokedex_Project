@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Pokemon } from '../models/pokemon';
-
 import { NgFor, CommonModule, NgClass } from '@angular/common';
 
 import { PokemonService } from '../services/data';
 
 import { PokemonComponent } from '../pokemon/pokemon.component';
+
+import { IPokemon } from '../interfaces/pokemon.interface';
+
+import { from, forkJoin, mergeMap, of, map, tap, toArray } from 'rxjs';
 
 @Component({
   selector: 'app-pokelist',
@@ -19,28 +21,42 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
 
 export class PokelistComponent implements OnInit {
 
+  public pokemons: any[] = [];
+
+  public selectedPokemonIndex: string | number | null = null;
+
+  constructor(private pokemonService: PokemonService) { }
+
   public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/pixel_pokeball.png?raw=true';
 
-  public selectedPokemonIndex: number | null = null;
-
-  pokemons!: Array<Pokemon>;
-
-  constructor(private PokemonService: PokemonService) {}
-
-  async ngOnInit() {
-
-    await this.PokemonService.loadPokemonData();
-    this.pokemons = this.PokemonService.getPokemons();
-
-    this.sortPokemons();
+  ngOnInit(): void {
+    this.pokemonService.getPokemons()
+      .pipe(
+        mergeMap((response: any) => from(response.results)),
+        mergeMap((result: any) => 
+          this.pokemonService.getPokemonData(result.name)
+            .pipe(
+              mergeMap((pokemon: any) => 
+                forkJoin({
+                  basic: of(pokemon),
+                  more: this.pokemonService.getMorePokemonData(pokemon.pokeIndex)
+                })
+              ),
+              map(({ basic, more }) => ({ ...basic, ...more }))
+            )
+        ),
+        toArray(),  
+        tap((pokemons: IPokemon[]) => this.pokemons = pokemons),
+        tap(() => this.sortPokemons())
+      )
+      .subscribe({
+        /*next: (pokemons) => console.log('Pokemons loaded:', pokemons),*/
+        error: (err) => console.error('Échec du chargement des pokemons:', err)
+      });
   }
 
-  onFocus(index: number | null): void {
+  onFocus(index: string | number | null): void {
     this.selectedPokemonIndex = index;
-  }
-
-  trackByPokeIndex(index: number, pokemon: Pokemon): number {
-    return pokemon.pokeIndex;
   }
 
   private sortPokemons(): void {
