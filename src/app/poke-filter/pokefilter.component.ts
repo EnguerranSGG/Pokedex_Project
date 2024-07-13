@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PokemonService } from '../services/data';
 import { FormsModule } from '@angular/forms';
 
@@ -13,6 +13,7 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
   templateUrl: './pokefilter.component.html',
   styleUrls: ['../poke-filter/pokefilter.component.scss']
 })
+
 export class PokeFilterComponent {
 
   filteredPokemons: Array<Pokemon> = [];
@@ -20,18 +21,21 @@ export class PokeFilterComponent {
   selectedPokemonType2: string | null = null;
   selectedPokemonIndex: number | null = null;
 
-  constructor(private PokemonService: PokemonService) {}
+  private pokemonService = inject(PokemonService);
+
+  constructor() {}
 
   async ngOnInit() {
-    await this.PokemonService.loadPokemonData();
-    this.filteredPokemons = this.PokemonService.getPokemons();
-    this.sortPokemons();
+    /*this.pokemonService.getPokemonData().subscribe(pokemons => {
+      this.filteredPokemons = pokemons;
+      this.sortPokemons();
+    });*/
   }
 
   async onSearch(pokemonType1: string, pokemonType2: string | null) {
     this.selectedPokemonType1 = pokemonType1;
     this.selectedPokemonType2 = pokemonType2;
-    this.filteredPokemons = await this.PokemonService.getPokemonByTypes(this.selectedPokemonType1, this.selectedPokemonType2);
+    /*this.filteredPokemons = await this.pokemonService.getPokemonByTypes(this.selectedPokemonType1, this.selectedPokemonType2);*/
 
     this.sortPokemons();
   }
