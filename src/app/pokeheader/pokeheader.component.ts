@@ -18,4 +18,8 @@ onAlert() {
   alert('Ce bouton aura une utilité dans un futur proche !');
 }
 
+onAltertRestore() {
+  alert('Désolé dresseur, cette zone est en cours de maintenance !');
+}
+
 }
