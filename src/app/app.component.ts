@@ -4,15 +4,15 @@ import { RouterOutlet } from '@angular/router';
 
 import { PokeheaderComponent } from './pokeheader/pokeheader.component';
 
+import { NgxPaginationModule} from 'ngx-pagination'
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PokeheaderComponent],
+  imports: [RouterOutlet, PokeheaderComponent, NgxPaginationModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  ngOnInit() {
-    alert('Attention dresseur, cette application utilise des effets sonores !');
-  }
+ 
 }

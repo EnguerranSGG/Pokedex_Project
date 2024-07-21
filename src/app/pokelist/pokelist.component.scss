@@ -9,9 +9,31 @@
     overflow-y: scroll;
 
     @media screen and (orientation: portrait) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         border: 2vw solid rgb(33, 30, 30);
         padding: 1.5vw;
         gap: 1.5vw;
     }
 }
+
+pagination-controls {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    font-family: "VT323", monospace;
+    font-weight: 500;
+    font-size: 2vw;
+    font-style: normal;
+
+    @media screen and (orientation: portrait) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+
+        font-size: 2vh;
+    }
+}
+

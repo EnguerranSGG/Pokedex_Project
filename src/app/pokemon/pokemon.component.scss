@@ -36,6 +36,11 @@
     height: 5vw;
     grid-column-start: 1;
     grid-column-end: 3;
+
+    @media screen and (orientation: portrait) {
+        width: 8vh;
+        height: 8vh;
+    }
 }
 
 .pokemon_info h2 {
@@ -45,6 +50,6 @@
     font-style: normal;
 
     @media screen and (orientation: portrait) {
-        font-size: 3.5vw;
+        font-size: 4vh;
     }
 }

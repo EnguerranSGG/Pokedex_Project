@@ -1,5 +1,26 @@
-<section class="pokemon_list">
-@for (pokemon of pokemons; track pokemon.pokeIndex;) {
-    <app-pokemon [pokemon]="pokemon" (click)="onFocus(pokemon.pokeIndex)"></app-pokemon>
+<!--@defer (on interaction) {<section class="pokemon_list">
+  @for (pokemon of pokemons; track pokemon;) {
+  <app-pokemon [pokemon]="pokemon"></app-pokemon>
   }
-</section>
+</section>}-->
+
+<!-- Pour le moment j'utilise *ngFor au lieu de @for puisque ce dernier ne semble pas fonctionner correctement 
+avec ngx-pagination. -->
+
+@defer (on interaction) {<section class="pokemon_list">
+  <div *ngFor="let pokemon of pokemons | paginate: {itemsPerPage: 28, currentPage: page, totalItems: totalPokemons}">
+    <app-pokemon [pokemon]="pokemon"></app-pokemon>
+  </div>
+  <pagination-controls (pageChange)="page= $event; pokemons = []; getPokemons()"></pagination-controls>
+</section>}
+@placeholder {<section class="pokemon_list">
+  <section class="pokewarning">
+    <div class="pokewarning_content">
+      <div>
+        <h1>Attention dresseur, cette application utilise des effets sonores !</h1>
+        <div class="pokewarning_button"><button>C'est compris</button></div>
+      </div>
+      <img [src]="" alt="pikachu">
+    </div>
+  </section>
+</section>}
