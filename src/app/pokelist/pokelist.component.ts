@@ -35,6 +35,8 @@ export class PokelistComponent implements OnInit {
 
   public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/pixel_pokeball.png?raw=true';
 
+  public pikachuImg: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png';
+
   ngOnInit(): void {
     this.getPokemons();
   }

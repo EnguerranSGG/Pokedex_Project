@@ -37,3 +37,97 @@ pagination-controls {
     }
 }
 
+.pokewarning {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1vw;
+    padding: 1vw;
+    border: 1vw solid rgb(33, 30, 30);
+    background-color: rgb(8, 159, 159, 1);
+    height: 75vh;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "VT323", monospace;
+    font-weight: 500;
+    font-size: 2vw;
+    font-style: normal;
+
+    @media screen and (orientation: portrait) {
+        grid-template-columns: 1fr 1fr;
+        border: 2vw solid rgb(33, 30, 30);
+        padding: 1.5vw;
+        gap: 1.5vw;
+
+        font-size: 2vh;
+    }
+}
+
+.pokewarning_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0vw 10vw;
+
+    @media screen and (orientation: portrait) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0vw 5vw;
+    }
+}
+
+.pokewarning_content img {
+    width: 50vw;
+    height: auto;
+
+    @media screen and (orientation: portrait) {
+        display: none;
+    }
+}
+.pokewarning_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.pokewarning button {
+    height: auto;
+    width: auto;
+    background-color: rgb(248, 197, 10);
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    background-size: contain;
+    background-position: center;
+
+    font-family: "VT323", monospace;
+    font-size: 1.5vw;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+
+    transition: filter 0.4s ease;
+    transition: border 0.4s ease;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(120%);
+        ;
+    }
+
+    &:active {
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+    }
+
+    @media screen and (orientation: portrait) {
+        font-size: 2.5vh;
+    }
+}

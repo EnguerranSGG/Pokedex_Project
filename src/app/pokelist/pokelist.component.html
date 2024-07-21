@@ -13,14 +13,13 @@ avec ngx-pagination. -->
   </div>
   <pagination-controls (pageChange)="page= $event; pokemons = []; getPokemons()"></pagination-controls>
 </section>}
-@placeholder {<section class="pokemon_list">
+@placeholder {
   <section class="pokewarning">
     <div class="pokewarning_content">
       <div>
         <h1>Attention dresseur, cette application utilise des effets sonores !</h1>
         <div class="pokewarning_button"><button>C'est compris</button></div>
       </div>
-      <img [src]="" alt="pikachu">
+      <img [src]="pikachuImg" alt="pikachu">
     </div>
-  </section>
-</section>}
+  </section>}
