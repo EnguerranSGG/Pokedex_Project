@@ -17,15 +17,15 @@ export class PokemonService {
 
     public pokemons = signal<IPokemon[]>([]);
 
-    getPokemons(): Observable<IPokemon[]> {
-        return this.http.get('https://pokeapi.co/api/v2/pokemon?limit=493')
+    getPokemons(limit : number, offset : number): Observable<IPokemon[]> {
+        return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
             .pipe(
                 map((response: any) => {
                     return response
                 }),
                 tap((data) => {
                     this.pokemons.set(data);
-                    console.log("First data:", data);
+                    /*console.log("First data:", data);*/
                 })
             );
     }

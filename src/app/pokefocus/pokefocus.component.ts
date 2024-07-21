@@ -39,7 +39,7 @@ export class PokemonFocusComponent implements OnInit {
         })
       )
       .subscribe({
-        /*next: (pokemon) => console.log('Pokemon loaded:', pokemon),*/
+        /*next: (pokemon) => console.log('Pokémon chargé:', pokemon),*/
         error: (err) => console.error('Échec du chargement du pokemon:', err)
       });
   }}
