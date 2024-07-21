@@ -25,7 +25,7 @@ export class PokemonService {
                 }),
                 tap((data) => {
                     this.pokemons.set(data);
-                    console.log("First data:", data);
+                    /*console.log("First data:", data);*/
                 })
             );
     }

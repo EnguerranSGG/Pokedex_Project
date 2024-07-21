@@ -62,8 +62,8 @@ export class PokelistComponent implements OnInit {
         /*tap(() => this.sortPokemons())*/
       )
       .subscribe({
-        /*next: (pokemons) => console.log('Pokemons loaded:', pokemons),*/
-        error: (err) => console.error('Échec du chargement des pokemons:', err)
+        /*next: (pokemons) => console.log('Pokémons chargés :', pokemons),*/
+        error: (err) => console.error('Échec du chargement des pokémons:', err)
       });
   }
 
