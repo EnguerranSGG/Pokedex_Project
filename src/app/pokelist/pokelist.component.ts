@@ -59,7 +59,7 @@ export class PokelistComponent implements OnInit {
         ),
         toArray(),  
         tap((pokemons: IPokemon[]) => this.pokemons = pokemons),
-        /*tap(() => this.sortPokemons())*/
+        tap(() => this.sortPokemons())
       )
       .subscribe({
         /*next: (pokemons) => console.log('Pokémons chargés :', pokemons),*/
@@ -79,9 +79,9 @@ export class PokelistComponent implements OnInit {
     this.selectedPokemonIndex = index;
   }
 
- /* private sortPokemons(): void {
-    this.pokemons.sort((a, b) => a.pokeIndex - b.pokeIndex);
-  }*/
+ private sortPokemons(): void {
+  this.pokemons.sort((a, b) => (a.pokeIndex as number) - (b.pokeIndex as number));
+  }
 
   /* Cette function utilise la méthode sort afin de s'assurer que les pokémons seront toujours affichés dans
   l'ordre de leur pokeIndex. En faisant a - b, a sera soit négatif, égal ou positif. Si a devient négatif 
