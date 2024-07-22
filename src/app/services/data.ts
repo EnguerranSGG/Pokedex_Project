@@ -56,7 +56,7 @@ export class PokemonService {
                     englishName: morePokemonData.name,
 
                     frenchName: morePokemonData.names.find((name: any) => name.language.name === 'fr').name,
-                    description: morePokemonData.flavor_text_entries.find((entry: any) => entry.language.name === 'fr').flavor_text,
+                    description: morePokemonData.flavor_text_entries.find((entry: any) => entry.language.name === 'fr')? morePokemonData.flavor_text_entries.find((entry: any) => entry.language.name === 'fr').flavor_text : `Désolé dresseur, il n'y a pas de description française disponible. ${morePokemonData.flavor_text_entries[0].flavor_text}`,
                     isLegendary: morePokemonData.is_legendary,
                     isMythical: morePokemonData.is_mythical,
                     generation: renderProperGeneration(morePokemonData.generation.name)
