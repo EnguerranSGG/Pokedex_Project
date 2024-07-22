@@ -29,7 +29,7 @@ export class PokelistComponent implements OnInit {
 
   page : number = 1;
 
-  totalPokemons: number = 885;
+  totalPokemons: number = 1008;
 
   constructor(private pokemonService: PokemonService) { }
 

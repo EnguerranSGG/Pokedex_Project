@@ -25,8 +25,8 @@
         </audio>
     </div>
     <div class="pokefocus_card_bottom">
-        <p>{{pokemon.frenchName}} est un pokemon {{pokemon.isMythical ? 'mythique' : ''}}{{pokemon.isLegendary ?
-            "légendaire" : ''}} de la {{pokemon.generation}} génération.<br><br>
+        <p>{{pokemon.frenchName}} est un pokemon <span id="mythical">{{pokemon.isMythical ? 'mythique' : ''}}</span><span id="legendary">{{pokemon.isLegendary ?
+            "légendaire" : ''}}</span> de la {{pokemon.generation}} génération.<br><br>
 
             "{{pokemon.description}}"</p>
     </div>
