@@ -16,6 +16,8 @@ export function renderProperGeneration(generation: string) : string {
         return 'septième';
       case 'generation-viii':
         return 'huitième';
+      case 'generation-ix':
+        return 'neuvième';
       default:
         return '';
     }
