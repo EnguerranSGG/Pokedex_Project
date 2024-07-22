@@ -1,7 +1,17 @@
 <div class="pokefocus_card">
     <div class="pokefocus_card_left">
+        <div class="pokefocus_card_first_info_on_portrait">
+            <img id="pokeball_icon" [src]="pokeballIcon" alt="pokeball icon">
+            <div class="pokemon_info">
+                <h2>{{pokemon.pokedexId}}<br />{{pokemon.frenchName}}</h2>
+            </div>
+            <div class="pokefocus_card_morpho">
+                <h2><span>Taille: </span>{{pokemon.height}}m<br><span>Poids: </span>{{pokemon.weight}}kg</h2>
+            </div>
+        </div>
         <div class="pokefocus_card_img">
-            <img [src]="pokemon.imageFrontDefault" alt="pokemon image">
+            <img [src]="pokemon.imageFrontDefault" alt="pokemon image" id="doesnt_shake">
+            @if (pokemon.crie) {<button (click)="onCrie(pokemon.crie)">cri</button>}
         </div>
     </div>
 
@@ -19,14 +29,11 @@
             <img [src]="pokemon.type1Img" alt="pokemon type {{pokemon.type1}}">
             <img [src]="pokemon.type2Img" alt="pokemon type {{pokemon.type2}}" onerror="this.style.display='none'">
         </div>
-        <audio controls *ngIf="pokemon.crie" class="custom-audio">
-            <source [src]="pokemon.crie" type="audio/mpeg">
-            Attention dresseur, ton navigateur ne supporte pas la puissance du cri de ce pokemon !
-        </audio>
     </div>
     <div class="pokefocus_card_bottom">
-        <p>{{pokemon.frenchName}} est un pokemon <span id="mythical">{{pokemon.isMythical ? 'mythique' : ''}}</span><span id="legendary">{{pokemon.isLegendary ?
-            "légendaire" : ''}}</span> de la {{pokemon.generation}} génération.<br><br>
+        <p>{{pokemon.frenchName}} est un pokemon <span id="mythical">{{pokemon.isMythical ? 'mythique' :
+                ''}}</span><span id="legendary">{{pokemon.isLegendary ?
+                "légendaire" : ''}}</span> de la {{pokemon.generation}} génération.<br><br>
 
             "{{pokemon.description}}"</p>
     </div>
