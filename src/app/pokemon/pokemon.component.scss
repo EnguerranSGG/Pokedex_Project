@@ -16,8 +16,10 @@
 }
 
 .pokemon_image {
+    object-fit: contain;
     @media screen and (orientation: portrait) {
         min-height: 50vh;
+        min-width: auto;
     }
 }
 
