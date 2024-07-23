@@ -14,6 +14,23 @@ import { mergeMap, forkJoin, of, map, tap } from 'rxjs';
 })
 export class PokemonFocusComponent implements OnInit {
 
+  public isChecked : boolean = false;
+
+showShinyIcon() {
+  const unchecked = document.getElementById('chroma_logo');
+  const checked = document.getElementById('chroma_logo_checked');
+
+  if (this.isChecked === false) {
+    this.isChecked = true;
+    checked!.style.display = 'none';
+    unchecked!.style.display = 'block'; 
+  } else {
+    this.isChecked = false;
+    unchecked!.style.display = 'none';
+    checked!.style.display = 'block';
+  }
+}
+
   onCrie(crie: string) {
     const audio = new Audio(`${crie}`);
     audio.play();
@@ -54,5 +71,8 @@ export class PokemonFocusComponent implements OnInit {
         /*next: (pokemon) => console.log('Pokémon chargé:', pokemon),*/
         error: (err) => console.error('Échec du chargement du pokemon:', err)
       });
+
+      this.showShinyIcon();
   }
+
 }

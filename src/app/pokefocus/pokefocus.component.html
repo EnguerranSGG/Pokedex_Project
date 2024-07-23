@@ -10,8 +10,11 @@
             </div>
         </div>
         <div class="pokefocus_card_img">
-            <img [src]="pokemon.imageFrontDefault" alt="pokemon image" id="doesnt_shake">
+            @if(isChecked === true){<img [src]="pokemon.imageFrontDefault" alt="pokemon image" id="doesnt_shake">}
+            @if(isChecked === false){<img [src]="pokemon.imageFrontShiny" alt="pokemon image" id="doesnt_shake">}
             @if (pokemon.crie) {<button (click)="onCrie(pokemon.crie)">cri</button>}
+            <div class="shiny_selector"><input type="checkbox" id="shiny_toggle" (click)="showShinyIcon()">
+            <label for="shiny_toggle"><img id="chroma_logo" src="https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/shiny_logo.png?raw=true"/><img id="chroma_logo_checked" src="https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/shiny_logo.png?raw=true"/></label></div>
         </div>
     </div>
 
