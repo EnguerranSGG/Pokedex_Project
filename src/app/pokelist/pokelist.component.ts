@@ -31,6 +31,8 @@ export class PokelistComponent implements OnInit {
 
   totalPokemons: number = 1008;
 
+  isntConfirm : boolean = false;
+
   constructor(private pokemonService: PokemonService) { }
 
   public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/pixel_pokeball.png?raw=true';
@@ -38,6 +40,7 @@ export class PokelistComponent implements OnInit {
   public pikachuImg: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png';
 
   ngOnInit(): void {
+    this.isntConfirm = localStorage.getItem('isConfirmed') === 'true';
     this.getPokemons();
   }
 
@@ -67,6 +70,11 @@ export class PokelistComponent implements OnInit {
       });
   }
 
+  isConfirm() : void {
+    this.isntConfirm = true;
+    localStorage.setItem('isConfirmed', 'true');
+  }
+
   getCorrectOffset(page: number) {
     if (page === 1){
       return 0
@@ -88,5 +96,4 @@ export class PokelistComponent implements OnInit {
   alors il sera placer avant b ect... */
 
 }
-
 
