@@ -51,15 +51,34 @@
     @media screen and (orientation: portrait) {
         display: flex;
         font-size: 2.5vh;
+
+        padding: 0 0;
+
     }
 
+}
+
+.pokefocus_card_navigation {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (orientation: portrait) {
+        margin-bottom: 1vh;
+    }
 }
 
 .pokefocus_card_left {
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
 
     display: flex;
     flex-direction: column;
@@ -67,10 +86,6 @@
     justify-content: space-around;
 
     @media screen and (orientation: portrait) {
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: 3;
         align-items: center;
     }
 }
@@ -200,8 +215,13 @@ input {
     }
 }
 
-button {
+.crie_button {
     position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
+button {
 
     border-bottom: 3px solid black;
     border-right: 3px solid black;
@@ -210,8 +230,6 @@ button {
     background-color: rgb(248, 197, 10);
 
     border-radius: 10%;
-    bottom: 2%;
-    right: 2%;
 
     font-family: "VT323", monospace;
     font-weight: 500;
@@ -267,8 +285,8 @@ button {
 .pokefocus_card_right {
     grid-column-start: 2;
     grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
 
     display: flex;
     flex-direction: column;
@@ -280,8 +298,8 @@ button {
         align-items: center;
         grid-column-start: 1;
         grid-column-end: 2;
-        grid-row-start: 3;
-        grid-row-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
 
         margin-top: 2vh;
     }
@@ -356,8 +374,8 @@ button {
 .pokefocus_card_bottom {
     grid-column-start: 1;
     grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
 
     display: flex;
     flex-direction: column;
@@ -375,8 +393,8 @@ button {
         font-size: 4vh;
         grid-column-start: 1;
         grid-column-end: 2;
-        grid-row-start: 4;
-        grid-row-end: 5;
+        grid-row-start: 5;
+        grid-row-end: 6;
 
         margin-top: 2vh;
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IPokemon } from '../interfaces/pokemon.interface';
 import { PokemonService } from '../services/data';
 import { CommonModule, NgIf } from '@angular/common';
@@ -14,44 +14,23 @@ import { mergeMap, forkJoin, of, map, tap } from 'rxjs';
 })
 export class PokemonFocusComponent implements OnInit {
 
-  public isChecked : boolean = false;
-
-showShinyIcon() {
-  const unchecked = document.getElementById('chroma_logo');
-  const checked = document.getElementById('chroma_logo_checked');
-
-  if (this.isChecked === false) {
-    this.isChecked = true;
-    checked!.style.display = 'none';
-    unchecked!.style.display = 'block'; 
-  } else {
-    this.isChecked = false;
-    unchecked!.style.display = 'none';
-    checked!.style.display = 'block';
-  }
-}
-
-  onCrie(crie: string) {
-    const audio = new Audio(`${crie}`);
-    audio.play();
-
-    const shakingIMG = document.getElementById("doesnt_shake");
-    shakingIMG?.classList.add("shake");
-
-    setTimeout(() => {
-      shakingIMG?.classList.remove('shake');
-    }, 800);
-  }
+  public isChecked: boolean = false;
 
   public pokemon!: IPokemon;
 
   public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/pixel_pokeball.png?raw=true';
 
-  constructor(private pokemonService: PokemonService, private route: ActivatedRoute) { }
+  constructor(private pokemonService: PokemonService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    const id: string = this.route.snapshot.params['pokeIndex'];
+    this.route.params.subscribe(params => {
+      const id: string = params['pokeIndex'];
+      this.fetchPokemonData(id);
+    });
+    this.showShinyIcon();
+  }
 
+  fetchPokemonData(id: string) {
     this.pokemonService.getMorePokemonData(id)
       .pipe(
         mergeMap((pokemon: any) =>
@@ -68,11 +47,44 @@ showShinyIcon() {
         })
       )
       .subscribe({
-        /*next: (pokemon) => console.log('Pokémon chargé:', pokemon),*/
         error: (err) => console.error('Échec du chargement du pokemon:', err)
       });
-
-      this.showShinyIcon();
   }
 
+  showShinyIcon() {
+    const unchecked = document.getElementById('chroma_logo');
+    const checked = document.getElementById('chroma_logo_checked');
+
+    if (this.isChecked === false) {
+      this.isChecked = true;
+      checked!.style.display = 'none';
+      unchecked!.style.display = 'block';
+    } else {
+      this.isChecked = false;
+      unchecked!.style.display = 'none';
+      checked!.style.display = 'block';
+    }
+  }
+
+  onCrie(crie: string) {
+    const audio = new Audio(`${crie}`);
+    audio.play();
+
+    const shakingIMG = document.getElementById("doesnt_shake");
+    shakingIMG?.classList.add("shake");
+
+    setTimeout(() => {
+      shakingIMG?.classList.remove('shake');
+    }, 800);
+  }
+
+  navigateToNextPokemon(id : string) {
+    const nextPokeIndex = parseInt(id as string) + 1;
+    this.router.navigateByUrl(`/pokedex/${nextPokeIndex}`);
+  }
+
+  navigateToPreviousPokemon(id : string) {
+    const nextPokeIndex = parseInt(id as string) - 1;
+    this.router.navigateByUrl(`/pokedex/${nextPokeIndex}`);
+  }
 }
