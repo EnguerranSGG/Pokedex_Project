@@ -20,6 +20,10 @@ export class PokemonFocusComponent implements OnInit {
 
   public pokeballIcon: string = 'https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/images/pixel_pokeball.png?raw=true';
 
+  public audio = new Audio('https://github.com/EnguerranSGG/Pokedex_Project/blob/main/src/assets/sounds/Poke_click.mov?raw=true');
+
+  public audioShiny = new Audio('https://github.com/EnguerranSGG/Pokedex_Project/raw/main/src/assets/sounds/shiny_sound.mp3?raw=true');
+
   constructor(private pokemonService: PokemonService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -63,6 +67,7 @@ export class PokemonFocusComponent implements OnInit {
       this.isChecked = false;
       unchecked!.style.display = 'none';
       checked!.style.display = 'block';
+      this.audioShiny.play();
     }
   }
 
@@ -81,10 +86,12 @@ export class PokemonFocusComponent implements OnInit {
   navigateToNextPokemon(id : string) {
     const nextPokeIndex = parseInt(id as string) + 1;
     this.router.navigateByUrl(`/pokedex/${nextPokeIndex}`);
+    this.audio.play();
   }
 
   navigateToPreviousPokemon(id : string) {
     const nextPokeIndex = parseInt(id as string) - 1;
     this.router.navigateByUrl(`/pokedex/${nextPokeIndex}`);
+    this.audio.play();
   }
 }
