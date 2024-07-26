@@ -1,4 +1,4 @@
-<section class="pokemon_filter">
+@if(hasSearch) {<section class="pokemon_filter">
   <div class="pokemon_filter_form">
     <input type="text" placeholder="Type 1" [(ngModel)]="selectedPokemonType1">
     <input type="text" placeholder="Type 2 (Optionnel)" [(ngModel)]="selectedPokemonType2">
@@ -9,4 +9,9 @@
     <app-pokemon [pokemon]="pokemon" (click)="onFocus(pokemon.pokeIndex)"></app-pokemon>
     }
   </div>
-</section>
+</section>}
+@if(!hasSearch) {<div class="pokemon_filter_form">
+  <input type="text" placeholder="Type 1" [(ngModel)]="selectedPokemonType1">
+  <input type="text" placeholder="Type 2 (Optionnel)" [(ngModel)]="selectedPokemonType2">
+  <button id="pokesearch_button" (click)="onSearch(selectedPokemonType1, selectedPokemonType2)">Rechercher</button>
+</div><app-pokelist></app-pokelist>}

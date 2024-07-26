@@ -6,10 +6,12 @@ import { Pokemon } from '../models/pokemon';
 
 import { PokemonComponent } from '../pokemon/pokemon.component';
 
+import { PokelistComponent } from '../pokelist/pokelist.component';
+
 @Component({
   selector: 'app-pokefilter',
   standalone: true,
-  imports: [FormsModule, PokemonComponent],
+  imports: [FormsModule, PokemonComponent, PokelistComponent],
   templateUrl: './pokefilter.component.html',
   styleUrls: ['../poke-filter/pokefilter.component.scss']
 })
@@ -20,6 +22,7 @@ export class PokeFilterComponent {
   selectedPokemonType1: string = '';
   selectedPokemonType2: string | null = null;
   selectedPokemonIndex: number | null = null;
+  public hasSearch: boolean = false;
 
   private pokemonService = inject(PokemonService);
 
